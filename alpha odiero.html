@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHA ODIERO - Professional Graphic Designer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2D3436;
+            --secondary-color: #0984E3;
+            --accent-color: #00B894;
+            --text-color: #2D3436;
+            --light-bg: #F5F6FA;
+        }
+
+        .creative-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .skill-bar {
+            height: 4px;
+            background: #E0E0E0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--secondary-color);
+            transition: width 1s ease;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 10px rgba(9, 132, 227, 0.5);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: inline-block;
+            color: #1a365d;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #2c5282, #4299e1);
+            border-radius: 2px;
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #1a365d;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2c5282, #4299e1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #2c5282;
+        }
+
+        .card-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #2D3436;
+        }
+
+        .hero-text {
+            font-size: 4.5rem;
+            font-weight: 900;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            color: #1a365d;
+            background: linear-gradient(45deg, #1a365d, #2c5282);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #2D3436;
+        }
+
+        .skill-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2D3436;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <span class="text-3xl font-black text-gray-900 text-shadow tracking-tight">ALPHA ODIERO</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-800 hover:text-blue-600">Home</a>
+                    <a href="#about" class="nav-link text-gray-800 hover:text-blue-600">About</a>
+                    <a href="#services" class="nav-link text-gray-800 hover:text-blue-600">Services</a>
+                    <a href="#portfolio" class="nav-link text-gray-800 hover:text-blue-600">Portfolio</a>
+                    <a href="#contact" class="nav-link text-gray-800 hover:text-blue-600">Contact</a>
+                </div>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-2xl text-gray-800"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <h1 class="hero-text">Professional Graphic Designer</h1>
+                <p class="text-2xl text-gray-700 mb-8 font-medium">Transforming ideas into stunning visual experiences</p>
+                <div class="flex justify-center space-x-4 text-reveal">
+                    <a href="#portfolio" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all text-shadow">
+                        View Portfolio
+                    </a>
+                    <a href="#contact" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full hover:bg-blue-50 transform hover:scale-105 transition-all">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="section-title text-gray-900 mb-8">About Me</h2>
+                    <p class="about-text mb-6">
+                        I'm a passionate graphic designer with over 5 years of experience in creating 
+                        compelling visual solutions. My work combines creativity with strategic thinking 
+                        to deliver designs that not only look great but also achieve business objectives.
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="skill-title">Adobe Creative Suite</h3>
+                            <div class="skill-bar mt-2">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="skill-title">UI/UX Design</h3>
+                            <div class="skill-bar mt-2">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="skill-title">Brand Identity</h3>
+                            <div class="skill-bar mt-2">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="ALPHA ODIERO at work" 
+                         class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="section-title text-center text-gray-900 mb-16">Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-scale">
+                    <i class="fas fa-paint-brush text-4xl text-blue-600 mb-4 text-glow"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Brand Identity Design</h3>
+                    <p class="card-text">Creating unique and memorable brand identities that resonate with your target audience.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-scale">
+                    <i class="fas fa-desktop text-4xl text-blue-600 mb-4 text-glow"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">UI/UX Design</h3>
+                    <p class="card-text">Designing intuitive and engaging user interfaces for web and mobile applications.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-scale">
+                    <i class="fas fa-bullhorn text-4xl text-blue-600 mb-4 text-glow"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Marketing Materials</h3>
+                    <p class="card-text">Designing eye-catching marketing materials that drive engagement and conversions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="section-title text-center text-gray-900 mb-16">Portfolio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="portfolio-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Brand Identity Project" 
+                         class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay">
+                        <div class="text-white text-center">
+                            <h3 class="text-xl font-bold mb-2">Brand Identity</h3>
+                            <p>Corporate Branding</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="UI Design Project" 
+                         class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay">
+                        <div class="text-white text-center">
+                            <h3 class="text-xl font-bold mb-2">UI Design</h3>
+                            <p>Mobile App Interface</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Marketing Design Project" 
+                         class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay">
+                        <div class="text-white text-center">
+                            <h3 class="text-xl font-bold mb-2">Marketing Design</h3>
+                            <p>Social Media Campaign</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="section-title text-center text-gray-900 mb-16">Get in Touch</h2>
+            <div class="max-w-2xl mx-auto">
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Name</label>
+                        <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Message</label>
+                        <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" rows="4"></textarea>
+                    </div>
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-glow">ALPHA ODIERO</h3>
+                    <p class="text-gray-400">Professional Graphic Designer</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-glow">Contact</h3>
+                    <p class="text-gray-400">Email: collinsodiera8@gmail.com</p>
+                    <p class="text-gray-400">Phone: +254 715 519 158</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-glow">Follow Me</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400">&copy; 2024 ALPHA ODIERO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.getAttribute('data-width') + '%';
+                }
+            });
+        });
+
+        skillBars.forEach(bar => {
+            bar.setAttribute('data-width', bar.style.width);
+            bar.style.width = '0';
+            observer.observe(bar);
+        });
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const button = this.querySelector('button');
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            button.disabled = true;
+
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                button.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    this.reset();
+                    button.innerHTML = 'Send Message';
+                    button.classList.remove('bg-green-600');
+                    button.disabled = false;
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
